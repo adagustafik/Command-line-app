@@ -6,6 +6,7 @@ import java.util.List;
 public class CalculationApp {
 
     private static final List<String> flags = Arrays.asList("--alg1", "--alg2");
+    private static final CalculationService calculationService = new CalculationServiceImpl();
 
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -27,23 +28,19 @@ public class CalculationApp {
             printUsage();
             return;
         }
-        Long num1;
-        Long num2;
         try {
-            num1 = Long.parseLong(args[1]);
-            num2 = Long.parseLong(args[2]);
+            System.out.println(flag.equals("--alg1") ? calculationService.multiply1(args[1], args[2]) :
+                    calculationService.multiply2(args[1], args[2]));
         } catch (NumberFormatException e) {
             System.out.println("Wrong number format provided: " + arguments);
-            return;
         }
-
 
     }
 
     public static void printUsage() {
         System.out.println("=============================");
         System.out.println("Command line arguments:");
-        System.out.println("\t" + "-alg1" + "\t" + " Algorithm using BigInteger class");
-        System.out.println("\t" + "-alg2" + "\t" + " Algorithm from scratch");
+        System.out.println("\t" + "-alg1" + "\t" + " Algorithm returning BigInteger");
+        System.out.println("\t" + "-alg2" + "\t" + " Algorithm returning String");
     }
 }
