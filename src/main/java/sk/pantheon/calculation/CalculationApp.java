@@ -41,6 +41,6 @@ public class CalculationApp {
         System.out.println("=============================");
         System.out.println("Command line arguments:");
         System.out.println("\t" + "-alg1" + "\t" + " BigInteger algorithm");
-        System.out.println("\t" + "-alg2" + "\t" + " From scratch algorithm");
+        System.out.println("\t" + "-alg2" + "\t" + " Algorithm from scratch");
     }
 }
