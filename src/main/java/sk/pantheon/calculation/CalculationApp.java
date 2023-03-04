@@ -40,7 +40,7 @@ public class CalculationApp {
     public static void printUsage() {
         System.out.println("=============================");
         System.out.println("Command line arguments:");
-        System.out.println("\t" + "-alg1" + "\t" + " Algorithm returning BigInteger");
-        System.out.println("\t" + "-alg2" + "\t" + " Algorithm returning String");
+        System.out.println("\t" + "-alg1" + "\t" + " BigInteger algorithm");
+        System.out.println("\t" + "-alg2" + "\t" + " From scratch algorithm");
     }
 }
