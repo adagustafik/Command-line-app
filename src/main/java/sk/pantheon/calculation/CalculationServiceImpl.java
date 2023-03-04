@@ -25,7 +25,7 @@ public class CalculationServiceImpl implements CalculationService {
             num2 = num2.substring(1);
             isNegative = !isNegative;
         }
-        int[] reversed = new int[num1.length() + num2.length() - 1];
+        int[] reversed = new int[num1.length() + num2.length()];
         int shiftDigNum2 = 0;
         for (int i = num1.length() - 1; i >= 0; i--) {
             int carry = 0;
@@ -43,10 +43,11 @@ public class CalculationServiceImpl implements CalculationService {
             }
             shiftDigNum2++;
         }
-
         StringBuilder sb = new StringBuilder();
         for (int i = reversed.length - 1; i >= 0; i--) {
-            sb.append(reversed[i]);
+            if (i != reversed.length - 1 || reversed[i] != 0) {
+                sb.append(reversed[i]);
+            }
         }
         return (isNegative ? "-" : "") + sb;
     }
