@@ -1,6 +1,8 @@
 package sk.pantheon.calculation;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -18,16 +20,59 @@ class CalculationAppTest {
         System.setOut(new PrintStream(outContent));
     }
 
-    @Test
-    void mainOK() {
+    @Nested
+    class mainOK {
         String input1 = "12345678901234567890";
         String input2 = "11111111111111111111";
-        String[] args1 = {"--alg1", input1, input2};
-        String[] args2 = {"--alg2", input1, input2};
         String expected = "137174210013717420998628257899862825790";
-        CalculationApp.main(args1);
+
+        @Test
+        void mainOKargs1() {
+            String[] args = {"--alg1", input1, input2};
+            CalculationApp.main(args);
+            String actual = outContent.toString().trim();
+            assertEquals(expected, actual);
+        }
+        @Test
+        void mainOKargs2() {
+            String[] args = {"--alg2", input1, input2};
+            CalculationApp.main(args);
+            String actual = outContent.toString().trim();
+            assertEquals(expected, actual);
+        }
+    }
+
+    @Test
+    void mainNotOKNoArgs() {
+        CalculationApp.main(new String[]{});
+        String actual = outContent.toString().split("\n")[1].trim();
+        assertEquals("Command line arguments:", actual);
+    }
+
+    @Test
+    void mainNotOKMissingArgs() {
+        CalculationApp.main(new String[]{"--alg1"});
         String actual = outContent.toString().trim();
-        assertEquals(expected, actual);
-        CalculationApp.main(args2);
+        assertEquals("Something is missing. Provided input: --alg1", actual);
+    }
+
+    @Test
+    void mainNotOKTooManyArgs() {
+        CalculationApp.main(new String[]{"--alg1", "1", "2", "3"});
+        String actual = outContent.toString().trim();
+        assertEquals("Too many arguments provided: --alg1 1 2 3", actual);
+    }
+
+    @Test
+    void mainNotOkWrongFlag() {
+        CalculationApp.main(new String[]{"--xxxx", "1", "2"});
+        String actual = outContent.toString().split("\n")[0].trim();
+        assertEquals("Unsupported argument provided: --xxxx 1 2", actual);
+    }
+
+
+    @AfterEach
+    void reSetPrintStream() {
+        System.setOut(originalOut);
     }
 }

@@ -69,7 +69,7 @@ class CalculationServiceImplTest {
             assertEquals(expected2, actual);
         }
     }
-    
+
     @Nested
     class multiplyOKZero {
         String input = "000000000000000000000";

@@ -18,13 +18,13 @@ public class CalculationApp {
             System.out.println("Something is missing. Provided input: " + arguments);
             return;
         }
-        if (args.length > 4) {
+        if (args.length > 3) {
             System.out.println("Too many arguments provided: " + arguments);
             return;
         }
         String flag = args[0];
         if (!flags.contains(flag)) {
-            System.out.println("Unsupported argument provided:" + arguments);
+            System.out.println("Unsupported argument provided: " + arguments);
             printUsage();
             return;
         }
@@ -40,7 +40,7 @@ public class CalculationApp {
     public static void printUsage() {
         System.out.println("=============================");
         System.out.println("Command line arguments:");
-        System.out.println("\t" + "-alg1" + "\t" + " BigInteger algorithm");
-        System.out.println("\t" + "-alg2" + "\t" + " Algorithm from scratch");
+        System.out.println("\t-alg1\tBigInteger algorithm");
+        System.out.println("\t-alg2\tAlgorithm from scratch");
     }
 }
