@@ -2,8 +2,11 @@
 
 ## Main functionality
 Command line application, which computes the multiplication of two large numbers outside the range of Long. 
+
 2 implementations provided - one using built-in Java class BigInteger (--alt1), one written from scratch (--alt2).
+
 Unit tests are implemented to test partial functionality as well as whole solution.
+
 Delivered with shell script to run directly from bash command line.
 
 ## Run app
