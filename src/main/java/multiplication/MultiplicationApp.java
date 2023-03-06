@@ -1,12 +1,12 @@
-package sk.pantheon.calculation;
+package multiplication;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class CalculationApp {
+public class MultiplicationApp {
 
     private static final List<String> flags = Arrays.asList("--alg1", "--alg2");
-    private static final CalculationService calculationService = new CalculationServiceImpl();
+    private static final MultiplicationService calculationService = new MultiplicationImpl();
 
     public static void main(String[] args) {
         if (args.length == 0) {

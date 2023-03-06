@@ -1,8 +1,8 @@
-package sk.pantheon.calculation;
+package multiplication;
 
 import java.math.BigInteger;
 
-public class CalculationServiceImpl implements CalculationService {
+public class MultiplicationImpl implements MultiplicationService {
 
     @Override
     public String multiply1(String num1, String num2) {

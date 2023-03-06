@@ -1,4 +1,4 @@
-package sk.pantheon.calculation;
+package multiplication;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CalculationServiceImplTest {
-    CalculationService calculationService;
+class MultiplicationServiceImplTest {
+    MultiplicationService calculationService;
 
     @BeforeEach
     void setup (){
-        calculationService = new CalculationServiceImpl();
+        calculationService = new MultiplicationImpl();
     }
 
     @Nested
